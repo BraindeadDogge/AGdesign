@@ -43,11 +43,10 @@
             <template v-slot:footer>
               <span></span>
               <span style="text-align: right; font-weight: 600">
-                "Если ты хочешь перемену в будущем&nbsp;&ndash; стань этой
-                переменой в настоящем."
+                "Всякая перемена прокладывает путь другим переменам."
                 <br />
                 <span style="font-weight: 300; font-size: 18.5px">
-                  Ганди Махатма
+                  Никколо Макиавелли
                 </span>
               </span>
             </template>
