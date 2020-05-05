@@ -1,6 +1,6 @@
 <template>
   <div style="height: 100%; ">
-    <div style="height: 100px; width: 98vw;position: fixed; z-index: 9999">
+    <div style="height: 100px; width: 98vw;position: fixed; z-index: 9998">
       <v-row align="center" justify="center" style="height: 100%">
         <v-col cols="2" lg="4" md="">
           <nuxt-link to="/">
@@ -54,7 +54,7 @@
         </div>
 
         <div style="width: 100vw" class="transform">
-          <TxtPic :url="'/ph/spaincity.jpg'" :side="'right'">
+          <TxtPic :url="'/ph/yellowhouse.jpg'" :side="'right'">
             <template v-slot:header>
               Мир меняется.
             </template>
@@ -92,7 +92,7 @@
             <v-card-text class="subtitle-1">
               <p style="margin-bottom: 30px;">
                 У всех крупных компаний есть сайт, который значительно поднимает
-                имидж, популярность, соответственно, и прибыль. Он нужен и вам.
+                имидж, популярность, соответственно, и прибыль. Он нужен и Вам.
               </p>
               <v-row>
                 <v-col cols="12" md="6" lg="4">
@@ -121,8 +121,9 @@
                     <template v-slot:icon>mdi-monitor-cellphone</template>
                     <template v-slot:title>Адаптивный дизайн</template>
                     <template>
-                      Ваш сайт будет интересно, а что самое главное правильно
-                      смотреться на любом устройстве и в любых обстоятельствах.
+                      Ваш сайт будет интересно, а что самое главное правильно,
+                      смотреться на любом устройстве и при любых
+                      обстоятельствах.
                     </template>
                   </SmallCard>
                 </v-col>
@@ -132,7 +133,7 @@
                     <template v-slot:title>Дальнейшая поддержка</template>
                     <template>
                       Всегда готовы помочь, если при дальнейшей работе у Вас
-                      возникнут какие то трудности. Никогда не откажем в
+                      возникнут какие-то трудности. Никогда не откажем в
                       каком-либо вопросе по теме сайта.
                     </template>
                   </SmallCard>
