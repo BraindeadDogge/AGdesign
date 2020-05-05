@@ -7,7 +7,7 @@
             <v-img
               style="margin-left: 25px;"
               width="100px"
-              src="logo.png"
+              src="/ph/logo.png"
               lazy-src="logoload.png"
             ></v-img>
           </nuxt-link>
@@ -76,7 +76,7 @@
                       ]"
                     >
                       С AG&nbsp;design Вы получите не только сайт, но и
-                      безупрченого спутника для Вашего бизнеса.
+                      безупречного спутника для Вашего бизнеса.
                     </v-card-title>
                   </v-card>
                 </v-col>

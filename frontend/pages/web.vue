@@ -7,7 +7,7 @@
             <v-img
               style="margin-left: 25px;"
               width="100px"
-              src="logo.png"
+              src="/ph/logo.png"
               lazy-src="logoload.png"
             ></v-img>
           </nuxt-link>
