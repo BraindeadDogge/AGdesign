@@ -86,7 +86,10 @@
             dark=""
             color="black"
           >
-            <v-card-title class="display-1 font-weight-bold">
+            <v-card-title
+              style="word-break: normal;"
+              class="display-1 font-weight-bold"
+            >
               Почему AG&nbsp;design?
             </v-card-title>
             <v-card-text class="subtitle-1">
@@ -179,6 +182,7 @@
               AG&nbsp;design&nbsp;&ndash; работаем на Ваш успех.
             </v-card-subtitle>
             <v-card-title
+              style="word-break: normal;"
               :class="[
                 $breakpoint.mdAndUp
                   ? 'display-1 font-weight-bold'

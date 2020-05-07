@@ -12,7 +12,7 @@
           class="flip-card"
         >
           <v-card color="transparent" elevation="0" dark style="padding: 15px">
-            <v-card-title>
+            <v-card-title style="word-break: normal;">
               <slot name="header">Lorem, ipsum.</slot>
             </v-card-title>
           </v-card>

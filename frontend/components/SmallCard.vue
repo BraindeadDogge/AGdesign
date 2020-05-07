@@ -6,7 +6,7 @@
       :class="hover ? 'color' : ''"
       style="width: 100%; height: 100%;"
     >
-      <v-card-title>
+      <v-card-title style="word-break: normal;">
         <v-icon large left>
           <slot name="icon">mdi-circle-slice-8</slot>
         </v-icon>

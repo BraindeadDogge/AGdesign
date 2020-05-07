@@ -46,7 +46,7 @@
                 <v-col cols="12">
                   <v-card elevation="18" tile style="transform: scale(1);">
                     <v-card-title
-                      style="font-family: 'Montserrat', sans-serif; justify-content: center;"
+                      style="font-family: 'Montserrat', sans-serif; justify-content: center; word-break: normal;"
                       :class="[
                         $breakpoint.smAndDown
                           ? 'headline font-weight-light'
@@ -68,7 +68,7 @@
                 <v-col cols="12">
                   <v-card elevation="18" style="transform: scale(0.70)">
                     <v-card-title
-                      style="font-family: 'Montserrat', sans-serif; justify-content: center;"
+                      style="font-family: 'Montserrat', sans-serif; justify-content: center; word-break: normal;"
                       :class="[
                         $breakpoint.smAndDown
                           ? 'headline font-weight-thin'
@@ -140,7 +140,10 @@
             dark=""
             color="black"
           >
-            <v-card-title class="display-1 font-weight-bold">
+            <v-card-title
+              style="word-break: normal;"
+              class="display-1 font-weight-bold"
+            >
               Ваши преимущества.
             </v-card-title>
             <v-card-text class="subtitle-1">
@@ -173,7 +176,7 @@
             <v-card-subtitle
               >Наши услуги&nbsp;&ndash; Ваш выбор</v-card-subtitle
             >
-            <v-card-title>
+            <v-card-title style="word-break: normal;">
               Наши сайты не просто соответствуют времени, они его опережают.
               Станьте обладателем сайта будущего. Сделайте своё будущее
               счастливым.
@@ -191,7 +194,10 @@
                     <template v-slot:header>Личный сайт.</template>
                     <!--Front slot ends-->
                     <!--Back slot begins-->
-                    <v-card-title class="headline font-weight-bold">
+                    <v-card-title
+                      style="word-break: normal;"
+                      class="headline font-weight-bold"
+                    >
                       Личный сайт.
                     </v-card-title>
                     <v-card-subtitle style="margin-top: -10px">
@@ -216,7 +222,10 @@
                     <template v-slot:header>Интернет-магазин.</template>
                     <!--Front slot ends-->
                     <!--Back slot begins-->
-                    <v-card-title class="headline font-weight-bold">
+                    <v-card-title
+                      style="word-break: normal;"
+                      class="headline font-weight-bold"
+                    >
                       Интернет-магазин.
                     </v-card-title>
                     <v-card-subtitle style="margin-top: -10px">
@@ -243,7 +252,10 @@
                     <template v-slot:header>Лендинг.</template>
                     <!--Front slot ends-->
                     <!--Back slot begins-->
-                    <v-card-title class="headline font-weight-bold">
+                    <v-card-title
+                      style="word-break: normal;"
+                      class="headline font-weight-bold"
+                    >
                       Лендинг.
                     </v-card-title>
                     <v-card-subtitle style="margin-top: -10px">
@@ -267,7 +279,10 @@
                     <template v-slot:header>Корпоративный сайт.</template>
                     <!--Front slot ends-->
                     <!--Back slot begins-->
-                    <v-card-title class="headline font-weight-bold">
+                    <v-card-title
+                      style="word-break: normal;"
+                      class="headline font-weight-bold"
+                    >
                       Корпоративный сайт.
                     </v-card-title>
                     <v-card-subtitle style="margin-top: -10px">
@@ -294,7 +309,10 @@
                     <template v-slot:header>Сайт-визитка.</template>
                     <!--Front slot ends-->
                     <!--Back slot begins-->
-                    <v-card-title class="headline font-weight-bold">
+                    <v-card-title
+                      style="word-break: normal;"
+                      class="headline font-weight-bold"
+                    >
                       Сайт-визитка.
                     </v-card-title>
                     <v-card-subtitle style="margin-top: -10px">
@@ -320,7 +338,10 @@
                     </template>
                     <!--Front slot ends-->
                     <!--Back slot begins-->
-                    <v-card-title class="headline font-weight-bold">
+                    <v-card-title
+                      style="word-break: normal;"
+                      class="headline font-weight-bold"
+                    >
                       "Индивидуальная концепция"
                     </v-card-title>
                     <v-card-subtitle style="margin-top: -10px">
@@ -348,10 +369,11 @@
               AG&nbsp;design&nbsp;&ndash; работаем на Ваш успех.
             </v-card-subtitle>
             <v-card-title
+              style="word-break: normal;"
               :class="[
                 $breakpoint.mdAndUp
-                  ? 'display-1 font-weight-bold'
-                  : 'headline font-weight-bold'
+                  ? 'display-1 font-weight-medium'
+                  : 'headline font-weight-medium'
               ]"
             >
               Благодаря анализу ситуации на рынке в Вашей нише и отслеживанию
@@ -359,7 +381,7 @@
               дизайна и никаких длинных скучных текстов. Только красиво и по
               делу.
               <br />
-              Мы яв­ля­ем­ся од­ной из не­мно­гих сту­дий в ми­ре, ко­то­рые
+              Мы яв­ля­ем­ся од­ной из не­мно­гих сту­дий, ко­то­рые
               мо­гут до­вес­ти идею до про­дук­та. От эс­ки­за на сал­фет­ке до
               го­то­во­го про­ек­та. У вас есть от­лич­ная идея о но­вом
               про­дук­те, и ни­кто не го­тов за неё взять­ся?

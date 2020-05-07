@@ -79,7 +79,7 @@
                               <nobr
                                 >Я принимаю
                                 <router-link to="/policy" v-on="on"
-                                  >Политику конфед-ти</router-link
+                                  >Политику конфид-ти</router-link
                                 >.</nobr
                               >
                             </div>
@@ -100,7 +100,7 @@
                               <nobr
                                 >Я принимаю
                                 <router-link to="/policy" v-on="on"
-                                  >Политику конфедициальности</router-link
+                                  >Политику конфидециальности</router-link
                                 >.</nobr
                               >
                             </div>
@@ -111,6 +111,7 @@
                   </v-col>
                   <v-col class="text-left" cols="12" sm="12" md="3">
                     <v-card-title
+                      style="word-break: normal;"
                       :class="[
                         $vuetify.breakpoint.lgAndUp ? 'title' : 'subtitle-1'
                       ]"
@@ -166,7 +167,9 @@
                   >
                 </template>
                 <v-card>
-                  <v-card-title class="headline">Спасибо!</v-card-title>
+                  <v-card-title style="word-break: normal;" class="headline"
+                    >Спасибо!</v-card-title
+                  >
                   <v-card-text
                     >Мы свяжемся с Вами в ближайшее время для уточнения
                     деталей.</v-card-text

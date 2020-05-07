@@ -145,4 +145,8 @@ export default {
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(170, 170, 170);
 }
+
+v-card-title {
+  word-break: normal !important;
+}
 </style>
