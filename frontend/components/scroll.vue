@@ -66,14 +66,14 @@
 
 .text {
   display: block;
-  margin-top: 75px;
-  margin-left: -30px;
-  font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
-  font-size: 12px;
-  color: #fff;
+  margin-top: 75px !important;
+  margin-left: -30px !important;
+  font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif !important;
+  font-size: 12px !important;
+  color: #fff !important;
   text-transform: uppercase;
   white-space: nowrap;
-  opacity: 0.35;
+  opacity: 0.35 !important;
   animation: pulse 2s linear alternate infinite;
 }
 
