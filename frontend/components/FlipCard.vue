@@ -22,7 +22,7 @@
         <v-card
           style="padding:35px 35px 0px;"
           elevation="4"
-          to="/web"
+          to="/contacts"
           class="flip-card"
         >
           <slot>

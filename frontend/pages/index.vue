@@ -36,13 +36,17 @@
           >
             <div
               style="
-              height: 100vh;
+              height: 83vh;
               width: 100vw;
               align-items: center;
               justify-content: center;
               display: flex"
             >
               <v-row justify="start">
+                <v-col cols="12"></v-col>
+                <v-col cols="12"></v-col>
+                <v-col cols="12"></v-col>
+                <v-col cols="12"></v-col>
                 <v-col cols="12">
                   <v-card elevation="18" tile style="transform: scale(1);">
                     <v-card-title
@@ -81,6 +85,24 @@
                   </v-card>
                 </v-col>
               </v-row>
+            </div>
+            <div
+              style="
+              height: 17vh;
+              width: 100vw;
+              align-items: center;
+              justify-content: center;"
+            >
+              <v-card
+                elevation="18"
+                color="transparent"
+                style="height: 100%; box-shadow: none !important"
+                @click="$vuetify.goTo('#info')"
+              >
+                <v-card-title style="justify-content: center; height: 50%">
+                  <scroll />
+                </v-card-title>
+              </v-card>
             </div>
           </v-img>
         </div>
@@ -166,7 +188,7 @@
           </v-card>
         </div>
 
-        <div style="width: 100vw;" class="transform">
+        <div style="width: 100vw;" class="transform" id="info">
           <v-card
             style="padding: 100px 30px; border: 0"
             tile=""
@@ -381,8 +403,8 @@
               дизайна и никаких длинных скучных текстов. Только красиво и по
               делу.
               <br />
-              Мы яв­ля­ем­ся од­ной из не­мно­гих сту­дий, ко­то­рые
-              мо­гут до­вес­ти идею до про­дук­та. От эс­ки­за на сал­фет­ке до
+              Мы яв­ля­ем­ся од­ной из не­мно­гих сту­дий, ко­то­рые мо­гут
+              до­вес­ти идею до про­дук­та. От эс­ки­за на сал­фет­ке до
               го­то­во­го про­ек­та. У вас есть от­лич­ная идея о но­вом
               про­дук­те, и ни­кто не го­тов за неё взять­ся?
               <br />
@@ -422,12 +444,14 @@
 <script>
 import TxtPic from '../components/TxtPic.vue'
 import FlipCard from '../components/FlipCard.vue'
+import scroll from '../components/scroll.vue'
 
 export default {
   name: 'Home',
   components: {
     TxtPic,
-    FlipCard
+    FlipCard,
+    scroll
   },
   head() {
     return {
