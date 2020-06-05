@@ -3,7 +3,7 @@
     <div class="chevron"></div>
     <div class="chevron"></div>
     <div class="chevron"></div>
-    <span class="text">наши услуги</span>
+    <span class="textscroll">наши услуги</span>
   </div>
 </template>
 
@@ -64,7 +64,7 @@
   }
 }
 
-.text {
+.textscroll {
   display: block;
   margin-top: 75px !important;
   margin-left: -30px !important;
