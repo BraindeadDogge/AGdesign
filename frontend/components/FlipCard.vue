@@ -121,7 +121,7 @@ export default {
 @media screen and (max-width: 380px) {
   .flip-card {
     height: 440px;
-    width: 400px;
+    width: 100vw;
     transform: scale(0.87);
   }
 }

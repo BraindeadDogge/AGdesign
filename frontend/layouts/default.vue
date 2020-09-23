@@ -128,22 +128,24 @@ export default {
   z-index: 9999;
 }
 
-::-webkit-scrollbar {
-  width: 12px;
-}
+@media screen and (min-width: 959px) {
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-}
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
 
-::-webkit-scrollbar-thumb {
-  background: rgb(199, 199, 199);
-  border-radius: 15px;
-  border: 3px solid #ffffff;
-}
+  ::-webkit-scrollbar-thumb {
+    background: rgb(199, 199, 199);
+    border-radius: 15px;
+    border: 3px solid #ffffff;
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background: rgb(170, 170, 170);
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(170, 170, 170);
+  }
 }
 
 v-card-title {

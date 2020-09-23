@@ -19,8 +19,16 @@
             right
             optional
           >
-            <v-tab to="/web">Сайты</v-tab>
-            <v-tab to="/contacts" style="margin-right: 25px;">Контакты</v-tab>
+            <v-tab
+              to="/web"
+              style="background-color: rgba(255, 255, 255, 0.3); border-radius: 40px 0px 0px 40px;"
+              >Сайты</v-tab
+            >
+            <v-tab
+              to="/contacts"
+              style="margin-right: 25px; background-color: rgba(255, 255, 255, 0.3); border-radius: 0px 40px 40px 0px;"
+              >Контакты</v-tab
+            >
           </v-tabs>
         </v-col>
       </v-row>
@@ -188,7 +196,7 @@
           </v-card>
         </div>
 
-        <div style="width: 100vw;" class="transform" id="info">
+        <div id="info" style="width: 100vw;" class="transform">
           <v-card
             style="padding: 100px 30px; border: 0"
             tile=""
@@ -381,12 +389,7 @@
         </div>
 
         <div style="width: 100vw;" class="transform">
-          <v-card
-            style="padding: 100px 50px; border: 0"
-            tile=""
-            outlined=""
-            flat
-          >
+          <v-card class="padding-for-card" style="border: 0" tile outlined flat>
             <v-card-subtitle>
               AG&nbsp;design&nbsp;&ndash; работаем на Ваш успех.
             </v-card-subtitle>
@@ -394,8 +397,8 @@
               style="word-break: normal;"
               :class="[
                 $breakpoint.mdAndUp
-                  ? 'display-1 font-weight-medium'
-                  : 'headline font-weight-medium'
+                  ? 'display-1 font-weight-bold'
+                  : 'headline font-weight-bold'
               ]"
             >
               Благодаря анализу ситуации на рынке в Вашей нише и отслеживанию
@@ -434,9 +437,17 @@
   font-size: 25px;
   line-height: 12px;
 }
+.padding-for-card {
+  padding: 100px 50px;
+}
 @media screen and (max-width: 1099px) {
   .transform {
     transform: translateY(-1px);
+  }
+}
+@media screen and (max-width: 959px) {
+  .padding-for-card {
+    padding: 70px 35px;
   }
 }
 </style>
@@ -452,6 +463,9 @@ export default {
     TxtPic,
     FlipCard,
     scroll
+  },
+  mounted() {
+    window.scrollTo(0, 0)
   },
   head() {
     return {

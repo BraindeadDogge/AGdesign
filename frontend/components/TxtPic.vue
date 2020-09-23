@@ -126,7 +126,7 @@ export default {
     padding: 0;
   }
   .inner-container {
-    padding: 60px;
+    padding: 70px 35px 30px;
   }
 }
 </style>

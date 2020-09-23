@@ -19,7 +19,11 @@
             right
             optional
           >
-            <v-tab to="/contacts" style="margin-right: 25px;">Контакты</v-tab>
+            <v-tab
+              to="/contacts"
+              style="margin-right: 25px; background-color: rgba(255, 255, 255, 0.3); border-radius: 40px 40px 40px 40px;"
+              >Контакты</v-tab
+            >
           </v-tabs>
         </v-col>
       </v-row>
@@ -172,12 +176,7 @@
         </div>
 
         <div style="width: 100vw;" class="transform">
-          <v-card
-            style="padding: 100px 50px; border: 0"
-            tile=""
-            outlined=""
-            flat
-          >
+          <v-card class="padding-for-card" style="border: 0" tile outlined flat>
             <v-card-subtitle>
               AG&nbsp;design&nbsp;&ndash; работаем на Ваш успех.
             </v-card-subtitle>
@@ -345,6 +344,9 @@ export default {
     TxtPic,
     SmallCard
     // SmallCardNum
+  },
+  mounted() {
+    window.scrollTo(0, 0)
   },
   head() {
     return {

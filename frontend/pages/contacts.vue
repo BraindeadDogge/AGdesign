@@ -3,9 +3,9 @@
     <v-btn class="ma-4" right outlined color="indigo" to="/">
       &times; Закрыть</v-btn
     >
-    <div style="height: 80%">
-      <v-row justify="center" align="center">
-        <v-col cols="11" lg="9" md="10">
+    <div style="height: 80%;">
+      <v-row justify="center" align="center" style="width: 100vw;">
+        <v-col cols="11" lg="9" md="10" style="padding-right: 0">
           <p
             :class="[$vuetify.breakpoint.lgAndUp ? 'display-2' : 'display-1']"
             class="text-left"
@@ -85,10 +85,7 @@
                             </div>
                           </template>
                         </v-checkbox>
-                        <v-checkbox
-                          v-if="$vuetify.breakpoint.mdAndUp"
-                          v-model="validbox"
-                        >
+                        <v-checkbox v-else v-model="validbox">
                           <template v-slot:label>
                             <div
                               :class="[
@@ -241,6 +238,9 @@ export default {
       return errors
     }
   },
+  mounted() {
+    window.scrollTo(0, 0)
+  },
 
   methods: {
     submit() {
@@ -275,7 +275,6 @@ export default {
       errors.length > 0 ? (this.valid = false) : (this.valid = true)
     }
   },
-
   head() {
     return {
       title: 'Контакты'

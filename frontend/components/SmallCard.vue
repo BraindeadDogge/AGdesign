@@ -7,10 +7,10 @@
       style="width: 100%; height: 100%;"
     >
       <v-card-title style="word-break: normal;">
-        <v-icon large left>
+        <v-icon large left style="width: 37px">
           <slot name="icon">mdi-circle-slice-8</slot>
         </v-icon>
-        <span class="title font-weight-light">
+        <span class="title font-weight-light" style="width: 70%">
           <slot name="title">Web is cool</slot>
         </span>
       </v-card-title>
