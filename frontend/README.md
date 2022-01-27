@@ -5,8 +5,13 @@
 ## Build Setup
 
 ```bash
+# delete node_modules and package-lock.json
+$ rm -rf node_modules
+$ rm -rf package-lock.json
+
 # install dependencies
 $ npm install
+$ npm install --save nuxt
 
 # serve with hot reload at localhost:3000
 $ npm run dev
