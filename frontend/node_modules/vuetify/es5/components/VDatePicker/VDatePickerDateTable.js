@@ -32,6 +32,7 @@ var _default = (0, _mixins.default)(_datePickerTable.default
       type: [String, Number],
       default: 0
     },
+    showAdjacentMonths: Boolean,
     showWeek: Boolean,
     weekdayFormat: Function
   },
@@ -94,6 +95,7 @@ var _default = (0, _mixins.default)(_datePickerTable.default
         staticClass: 'v-date-picker-table--date__week'
       }, String(weekNumber).padStart(2, '0'))]);
     },
+    // eslint-disable-next-line max-statements
     genTBody: function genTBody() {
       var children = [];
       var daysInMonth = new Date(this.displayedYear, this.displayedMonth + 1, 0).getDate();
@@ -104,13 +106,19 @@ var _default = (0, _mixins.default)(_datePickerTable.default
         rows.push(this.genWeekNumber(this.getWeekNumber(1)));
       }
 
+      var prevMonthYear = this.displayedMonth ? this.displayedYear : this.displayedYear - 1;
+      var prevMonth = (this.displayedMonth + 11) % 12;
+      var firstDayFromPreviousMonth = new Date(this.displayedYear, this.displayedMonth, 0).getDate();
+
       while (day--) {
-        rows.push(this.$createElement('td'));
+        var date = "".concat(prevMonthYear, "-").concat((0, _util.pad)(prevMonth + 1), "-").concat((0, _util.pad)(firstDayFromPreviousMonth - day));
+        rows.push(this.$createElement('td', this.showAdjacentMonths ? [this.genButton(date, true, 'date', this.formatter, true)] : []));
       }
 
       for (day = 1; day <= daysInMonth; day++) {
-        var date = "".concat(this.displayedYear, "-").concat((0, _util.pad)(this.displayedMonth + 1), "-").concat((0, _util.pad)(day));
-        rows.push(this.$createElement('td', [this.genButton(date, true, 'date', this.formatter)]));
+        var _date = "".concat(this.displayedYear, "-").concat((0, _util.pad)(this.displayedMonth + 1), "-").concat((0, _util.pad)(day));
+
+        rows.push(this.$createElement('td', [this.genButton(_date, true, 'date', this.formatter)]));
 
         if (rows.length % (this.showWeek ? 8 : 7) === 0) {
           children.push(this.genTR(rows));
@@ -120,6 +128,16 @@ var _default = (0, _mixins.default)(_datePickerTable.default
             rows.push(this.genWeekNumber(this.getWeekNumber(day + 7)));
           }
         }
+      }
+
+      var nextMonthYear = this.displayedMonth === 11 ? this.displayedYear + 1 : this.displayedYear;
+      var nextMonth = (this.displayedMonth + 1) % 12;
+      var nextMonthDay = 1;
+
+      while (rows.length < 7) {
+        var _date2 = "".concat(nextMonthYear, "-").concat((0, _util.pad)(nextMonth + 1), "-").concat((0, _util.pad)(nextMonthDay++));
+
+        rows.push(this.$createElement('td', this.showAdjacentMonths ? [this.genButton(_date2, true, 'date', this.formatter, true)] : []));
       }
 
       if (rows.length) {

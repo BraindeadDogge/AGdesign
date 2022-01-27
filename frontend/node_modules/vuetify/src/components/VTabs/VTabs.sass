@@ -43,14 +43,14 @@
 
     // https://github.com/vuetifyjs/vuetify/issues/8294
     &.v-tabs--right
-      > .v-slide-group--is-overflowing.v-tabs-bar--is-mobile:not(.v-tabs-bar--show-arrows):not(.v-slide-group--has-affixes)
+      > .v-slide-group--is-overflowing.v-tabs-bar--is-mobile:not(.v-slide-group--has-affixes)
         .v-slide-group__next
           display: initial
           visibility: hidden
 
     // https://github.com/vuetifyjs/vuetify/issues/6932
     &:not(.v-tabs--right)
-      > .v-slide-group--is-overflowing.v-tabs-bar--is-mobile:not(.v-tabs-bar--show-arrows):not(.v-slide-group--has-affixes)
+      > .v-slide-group--is-overflowing.v-tabs-bar--is-mobile:not(.v-slide-group--has-affixes)
         .v-slide-group__prev
           display: initial
           visibility: hidden
@@ -65,6 +65,7 @@
 
 .v-tab
   align-items: center
+  cursor: pointer
   display: flex
   flex: 0 1 auto
   font-size: $tab-font-size
@@ -99,8 +100,6 @@
     top: 0
     transition: $primary-transition
 
-  &:not(.v-tab-disabled)
-    cursor: pointer
 
 .v-tabs-slider
   background-color: currentColor
@@ -115,7 +114,7 @@
     z-index: 1
 
 // Modifier
-.v-tabs--align-with-title > .v-tabs-bar:not(.v-tabs-bar--show-arrows) > .v-slide-group__wrapper > .v-tabs-bar__content
+.v-tabs--align-with-title > .v-tabs-bar:not(.v-tabs-bar--show-arrows):not(.v-slide-group--is-overflowing) > .v-slide-group__wrapper > .v-tabs-bar__content
   & > .v-tab:first-child,
   & > .v-tabs-slider-wrapper + .v-tab
     +ltr()

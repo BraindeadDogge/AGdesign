@@ -63,6 +63,10 @@ var _default2 = (0, _mixins.default)(_colorable.default, _sizeable.default, _rou
       type: String,
       default: '$delete'
     },
+    closeLabel: {
+      type: String,
+      default: '$vuetify.close'
+    },
     disabled: Boolean,
     draggable: Boolean,
     filter: Boolean,
@@ -150,6 +154,9 @@ var _default2 = (0, _mixins.default)(_colorable.default, _sizeable.default, _rou
         props: {
           right: true,
           size: 18
+        },
+        attrs: {
+          'aria-label': this.$vuetify.lang.t(this.closeLabel)
         },
         on: {
           click: function click(e) {

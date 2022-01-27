@@ -40,7 +40,9 @@ function (_Service) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Icons).call(this));
     var _preset$Icons$propert = preset[Icons.property],
         iconfont = _preset$Icons$propert.iconfont,
-        values = _preset$Icons$propert.values;
+        values = _preset$Icons$propert.values,
+        component = _preset$Icons$propert.component;
+    _this.component = component;
     _this.iconfont = iconfont;
     _this.values = (0, _helpers.mergeDeep)(_presets.default[iconfont], values);
     return _this;

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.VExpandXTransition = exports.VExpandTransition = exports.VSlideYReverseTransition = exports.VSlideYTransition = exports.VSlideXReverseTransition = exports.VSlideXTransition = exports.VScrollYReverseTransition = exports.VScrollYTransition = exports.VScrollXReverseTransition = exports.VScrollXTransition = exports.VScaleTransition = exports.VFadeTransition = exports.VDialogBottomTransition = exports.VDialogTransition = exports.VFabTransition = exports.VMenuTransition = exports.VTabReverseTransition = exports.VTabTransition = exports.VCarouselReverseTransition = exports.VCarouselTransition = void 0;
+exports.default = exports.VExpandXTransition = exports.VExpandTransition = exports.VSlideYReverseTransition = exports.VSlideYTransition = exports.VSlideXReverseTransition = exports.VSlideXTransition = exports.VScrollYReverseTransition = exports.VScrollYTransition = exports.VScrollXReverseTransition = exports.VScrollXTransition = exports.VScaleTransition = exports.VFadeTransition = exports.VDialogTopTransition = exports.VDialogBottomTransition = exports.VDialogTransition = exports.VFabTransition = exports.VMenuTransition = exports.VTabReverseTransition = exports.VTabTransition = exports.VCarouselReverseTransition = exports.VCarouselTransition = void 0;
 
 var _createTransition = require("./createTransition");
 
@@ -29,6 +29,8 @@ var VDialogTransition = (0, _createTransition.createSimpleTransition)('dialog-tr
 exports.VDialogTransition = VDialogTransition;
 var VDialogBottomTransition = (0, _createTransition.createSimpleTransition)('dialog-bottom-transition');
 exports.VDialogBottomTransition = VDialogBottomTransition;
+var VDialogTopTransition = (0, _createTransition.createSimpleTransition)('dialog-top-transition');
+exports.VDialogTopTransition = VDialogTopTransition;
 var VFadeTransition = (0, _createTransition.createSimpleTransition)('fade-transition');
 exports.VFadeTransition = VFadeTransition;
 var VScaleTransition = (0, _createTransition.createSimpleTransition)('scale-transition');
@@ -60,6 +62,7 @@ var _default = {
     VCarouselReverseTransition: VCarouselReverseTransition,
     VDialogTransition: VDialogTransition,
     VDialogBottomTransition: VDialogBottomTransition,
+    VDialogTopTransition: VDialogTopTransition,
     VFabTransition: VFabTransition,
     VFadeTransition: VFadeTransition,
     VMenuTransition: VMenuTransition,

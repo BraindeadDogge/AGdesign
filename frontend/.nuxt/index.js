@@ -1,4 +1,5 @@
 import Vue from 'vue'
+
 import Meta from 'vue-meta'
 import ClientOnly from 'vue-client-only'
 import NoSsr from 'vue-no-ssr'
@@ -11,8 +12,8 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 /* Plugins */
 
-import nuxt_plugin_plugin_fdf6b70e from 'nuxt_plugin_plugin_fdf6b70e' // Source: ./vuetify/plugin.js (mode: 'all')
-import nuxt_plugin_axios_062af22b from 'nuxt_plugin_axios_062af22b' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_plugin_23548fb8 from 'nuxt_plugin_plugin_23548fb8' // Source: ./vuetify/plugin.js (mode: 'all')
+import nuxt_plugin_axios_9e37fbc0 from 'nuxt_plugin_axios_9e37fbc0' // Source: ./axios.js (mode: 'all')
 import nuxt_plugin_breakpoint_4e0af832 from 'nuxt_plugin_breakpoint_4e0af832' // Source: ../plugins/breakpoint (mode: 'all')
 import nuxt_plugin_vuefbcustomerchat_0b9d4ea4 from 'nuxt_plugin_vuefbcustomerchat_0b9d4ea4' // Source: ../plugins/vue-fb-customer-chat.js (mode: 'all')
 
@@ -41,11 +42,18 @@ Vue.component('NChild', NuxtChild)
 // Component: <Nuxt>
 Vue.component(Nuxt.name, Nuxt)
 
+Object.defineProperty(Vue.prototype, '$nuxt', {
+  get() {
+    return this.$root.$options.$nuxt
+  },
+  configurable: true
+})
+
 Vue.use(Meta, {"keyName":"head","attribute":"data-n-head","ssrAttribute":"data-n-head-ssr","tagIDKeyName":"hid"})
 
 const defaultTransition = {"name":"page","mode":"out-in","appear":false,"appearClass":"appear","appearActiveClass":"appear-active","appearToClass":"appear-to"}
 
-async function createApp (ssrContext) {
+async function createApp(ssrContext, config = {}) {
   const router = await createRouter(ssrContext)
 
   // Create Root instance
@@ -121,7 +129,7 @@ async function createApp (ssrContext) {
     ssrContext
   })
 
-  const inject = function (key, value) {
+  function inject(key, value) {
     if (!key) {
       throw new Error('inject(key, value) has no key provided')
     }
@@ -132,6 +140,10 @@ async function createApp (ssrContext) {
     key = '$' + key
     // Add into app
     app[key] = value
+    // Add into context
+    if (!app.context[key]) {
+      app.context[key] = value
+    }
 
     // Check if plugin not already installed
     const installKey = '__nuxt_' + key + '_installed__'
@@ -141,7 +153,7 @@ async function createApp (ssrContext) {
     Vue[installKey] = true
     // Call Vue.use() to install the plugin into vm
     Vue.use(() => {
-      if (!Object.prototype.hasOwnProperty.call(Vue, key)) {
+      if (!Object.prototype.hasOwnProperty.call(Vue.prototype, key)) {
         Object.defineProperty(Vue.prototype, key, {
           get () {
             return this.$root.$options[key]
@@ -151,14 +163,24 @@ async function createApp (ssrContext) {
     })
   }
 
+  // Inject runtime config as $config
+  inject('config', config)
+
+  // Add enablePreview(previewData = {}) in context for plugins
+  if (process.static && process.client) {
+    app.context.enablePreview = function (previewData = {}) {
+      app.previewData = Object.assign({}, previewData)
+      inject('preview', previewData)
+    }
+  }
   // Plugin execution
 
-  if (typeof nuxt_plugin_plugin_fdf6b70e === 'function') {
-    await nuxt_plugin_plugin_fdf6b70e(app.context, inject)
+  if (typeof nuxt_plugin_plugin_23548fb8 === 'function') {
+    await nuxt_plugin_plugin_23548fb8(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_062af22b === 'function') {
-    await nuxt_plugin_axios_062af22b(app.context, inject)
+  if (typeof nuxt_plugin_axios_9e37fbc0 === 'function') {
+    await nuxt_plugin_axios_9e37fbc0(app.context, inject)
   }
 
   if (typeof nuxt_plugin_breakpoint_4e0af832 === 'function') {
@@ -169,12 +191,23 @@ async function createApp (ssrContext) {
     await nuxt_plugin_vuefbcustomerchat_0b9d4ea4(app.context, inject)
   }
 
+  // Lock enablePreview in context
+  if (process.static && process.client) {
+    app.context.enablePreview = function () {
+      console.warn('You cannot call enablePreview() outside a plugin.')
+    }
+  }
+
   // If server-side, wait for async component to be resolved first
   if (process.server && ssrContext && ssrContext.url) {
     await new Promise((resolve, reject) => {
-      router.push(ssrContext.url, resolve, () => {
+      router.push(ssrContext.url, resolve, (err) => {
+        // https://github.com/vuejs/vue-router/blob/v3.4.3/src/util/errors.js
+        if (!err._isRouter) return reject(err)
+        if (err.type !== 2 /* NavigationFailureType.redirected */) return resolve()
+
         // navigated to a different route in router guard
-        const unregister = router.afterEach(async (to, from, next) => {
+        const unregister = router.afterEach(async (to, from) => {
           ssrContext.url = to.fullPath
           app.context.route = await getRouteData(to)
           app.context.params = to.params || {}

@@ -35,7 +35,11 @@ var BaseItemGroup = (0, _mixins.default)(_proxyable.default, _themeable.default)
       type: [Number, String],
       default: null
     },
-    multiple: Boolean
+    multiple: Boolean,
+    tag: {
+      type: String,
+      default: 'div'
+    }
   },
   data: function data() {
     return {
@@ -216,7 +220,7 @@ var BaseItemGroup = (0, _mixins.default)(_proxyable.default, _themeable.default)
     }
   },
   render: function render(h) {
-    return h('div', this.genData(), this.$slots.default);
+    return h(this.tag, this.genData(), this.$slots.default);
   }
 });
 exports.BaseItemGroup = BaseItemGroup;

@@ -9,8 +9,10 @@ export class Icons extends Service {
     super();
     const {
       iconfont,
-      values
+      values,
+      component
     } = preset[Icons.property];
+    this.component = component;
     this.iconfont = iconfont;
     this.values = mergeDeep(presets[iconfont], values);
   }
