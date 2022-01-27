@@ -14,7 +14,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.10.3",
     "@nuxtjs/dotenv": "^1.4.0",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.15.8",
     "vue-fb-customer-chat": "^0.2.0",
     "vuelidate": "^0.7.5"
   },

@@ -48,10 +48,7 @@ export default baseMixins.extend({
     disabled: Boolean,
     fullscreen: Boolean,
     light: Boolean,
-    maxWidth: {
-      type: [String, Number],
-      default: 'none',
-    },
+    maxWidth: [String, Number],
     noClickAnimation: Boolean,
     origin: {
       type: String,
@@ -67,10 +64,7 @@ export default baseMixins.extend({
       type: [String, Boolean],
       default: 'dialog-transition',
     },
-    width: {
-      type: [String, Number],
-      default: 'auto',
-    },
+    width: [String, Number],
   },
 
   data () {
@@ -187,8 +181,10 @@ export default baseMixins.extend({
       // Double nextTick to wait for lazy content to be generated
       this.$nextTick(() => {
         this.$nextTick(() => {
-          this.previousActiveElement = document.activeElement as HTMLElement
-          this.$refs.content.focus()
+          if (!this.$refs.content.contains(document.activeElement)) {
+            this.previousActiveElement = document.activeElement as HTMLElement
+            this.$refs.content.focus()
+          }
           this.bind()
         })
       })
@@ -257,8 +253,9 @@ export default baseMixins.extend({
           this.$createElement('div', {
             class: this.contentClasses,
             attrs: {
-              role: 'document',
+              role: 'dialog',
               tabindex: this.isActive ? 0 : undefined,
+              'aria-modal': this.hideOverlay ? undefined : 'true',
               ...this.getScopeIdAttrs(),
             },
             on: { keydown: this.onKeydown },
@@ -304,8 +301,8 @@ export default baseMixins.extend({
       if (!this.fullscreen) {
         data.style = {
           ...data.style as object,
-          maxWidth: this.maxWidth === 'none' ? undefined : convertToUnit(this.maxWidth),
-          width: this.width === 'auto' ? undefined : convertToUnit(this.width),
+          maxWidth: convertToUnit(this.maxWidth),
+          width: convertToUnit(this.width),
         }
       }
 
@@ -322,7 +319,6 @@ export default baseMixins.extend({
           this.attach === true ||
           this.attach === 'attach',
       },
-      attrs: { role: 'dialog' },
     }, [
       this.genActivator(),
       this.genContent(),
